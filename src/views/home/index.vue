@@ -12,24 +12,25 @@
             background-color="#353b4e"
             text-color="#adafb5"
             active-text-color="#ffd04b"
+            router
           >
             <!-- 导航组件 -->
-            <el-menu-item> 首页 </el-menu-item>
+            <el-menu-item index="/home"> 首页 </el-menu-item>
             <!-- 二级导航 -->
             <el-submenu index="1">
               <!-- 具名插槽 -->
               <span slot="title">用户信息</span>
               <!-- 放置 el-menu-item -->
-              <el-menu-item>新增用户</el-menu-item>
-              <el-menu-item>用户列表</el-menu-item>
-              <el-menu-item>用户分组</el-menu-item>
+              <el-menu-item index="/home/newUser">新增用户</el-menu-item>
+              <el-menu-item index="/home/userList">用户列表</el-menu-item>
+              <el-menu-item index="/home/userGrouping">用户分组</el-menu-item>
             </el-submenu>
             <el-submenu index="2">
               <span slot="title">护工信息</span>
-              <el-menu-item>新增护工</el-menu-item>
-              <el-menu-item>护工列表</el-menu-item>
+              <el-menu-item index="/home/newNurses">新增护工</el-menu-item>
+              <el-menu-item index="/home/nursesList">护工列表</el-menu-item>
             </el-submenu>
-            <el-menu-item>个人信息</el-menu-item>
+            <el-menu-item index="/home/myMessage">个人信息</el-menu-item>
           </el-menu>
         </div>
       </el-aside>
@@ -66,7 +67,9 @@
             </el-col>
           </el-row>
         </el-header>
-        <el-main class="main">主页</el-main>
+        <el-main class="main">
+          <router-view></router-view>
+        </el-main>
       </el-container>
     </el-container>
   </div>
@@ -82,7 +85,7 @@ export default {}
   height: 100vh;
   .layout-aside {
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     background-color: #353b4e;
     box-sizing: border-box;
     .el-menu-item {
@@ -139,7 +142,7 @@ export default {}
     }
   }
   .main {
-    background-color: blue;
+    background-color: #eee;
   }
 }
 </style>
