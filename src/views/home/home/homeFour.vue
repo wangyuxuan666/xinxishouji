@@ -1,11 +1,12 @@
 <template>
   <div>
-      个人信息
+      four
   </div>
 </template>
 
 <script>
 export default {
+
 }
 </script>
 

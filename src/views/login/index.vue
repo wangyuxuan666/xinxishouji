@@ -30,6 +30,7 @@
         </el-form>
       </el-card>
     </div>
+    {{loginRules}}
   </div>
 </template>
 

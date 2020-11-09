@@ -1,7 +1,7 @@
 <template>
   <div>
     <el-container class="total">
-      <el-aside width="240px">
+      <el-aside width="240px" class="left">
         <div class="layout-aside">
           <div class="title">
             <img src="../../assets/logo.png" alt="" />
@@ -9,10 +9,11 @@
           </div>
           <el-menu
             style="width: 100%"
-            background-color="#353b4e"
+            background-color="#2c3141"
             text-color="#adafb5"
             active-text-color="#ffd04b"
             router
+            :default-openeds="open"
           >
             <!-- 导航组件 -->
             <el-menu-item index="/home"> 首页 </el-menu-item>
@@ -45,9 +46,10 @@
             <!-- 左侧 -->
             <el-col class="left" :span="6">
               <!-- 左侧图标 -->
-              <i class="el-icon-s-unfold"></i>
+              <i class="el-icon-news"></i>
               <span class="layout-header_left_title"
-                >唐山众源康养管理有限公司</span>
+                >唐山众源康养管理有限公司</span
+              >
             </el-col>
             <!-- 右侧 -->
             <el-col class="right" :span="3">
@@ -76,54 +78,65 @@
 </template>
 
 <script>
-export default {}
+export default {
+  data () {
+    return {
+      open: ['1', '2']
+    }
+  }
+}
 </script>
 
 <style lang="less" scoped>
 .total {
   width: 100%;
   height: 100vh;
-  .layout-aside {
-    width: 100%;
-    min-height: 100vh;
-    background-color: #353b4e;
-    box-sizing: border-box;
-    .el-menu-item {
+  .left {
+    z-index: 2;
+    .layout-aside {
+      width: 100%;
+      min-height: 100vh;
+      background-color: #2c3141;
       box-sizing: border-box;
-      width: 240px;
-    }
-    .el-submenu {
-      width: 240px;
-    }
-    .title {
-      background-color: #2e2f32;
-      padding: 0 0 0 20px;
-      height: 60px;
-      box-sizing: border-box;
-      img {
-        height: 30px;
-        float: left;
-        margin: 15px 5px 15px 30px;
+      .el-menu-item {
+        box-sizing: border-box;
+        width: 240px;
       }
-      h1 {
-        float: left;
-        margin: 5px 5px;
-        height: 50px;
-        line-height: 52px;
-        color: #fff;
-        font-weight: 300;
-        font-size: 20px;
-        letter-spacing: 3px;
-        font-family: "Times New Roman", Georgia, Serif;
+      .el-submenu {
+        width: 240px;
+      }
+      .title {
+        background-color: #2c3141;
+        padding: 0 0 0 5px;
+        height: 70px;
+        box-sizing: border-box;
+        img {
+          height: 30px;
+          float: left;
+          margin: 25px 5px 15px 18px;
+        }
+        h1 {
+          float: left;
+          margin: 5px 10px;
+          height: 50px;
+          line-height: 70px;
+          color: #fff;
+          font-weight: 300;
+          font-size: 20px;
+          letter-spacing: 3px;
+          font-family: "Times New Roman", Georgia, Serif;
+        }
       }
     }
   }
   .header {
-    height: 60px !important;
+    height: 70px !important;
+    box-shadow: 0px 0px 10px 5px #ccc;
+    z-index: 1;
     .layout-header {
       display: flex;
       align-content: center;
-      height: 60px;
+      height: 70px;
       .left {
         .layout-header_left_title {
           margin-left: 10px;
@@ -131,18 +144,19 @@ export default {}
           color: #2c3e50;
         }
       }
-      .right{
-        img{
+      .right {
+        img {
           margin-right: 15px;
         }
-        span{
+        span {
           cursor: pointer;
         }
       }
     }
   }
   .main {
-    background-color: #eee;
+    background-color: rgb(245, 245, 245);
+    padding: 0%;
   }
 }
 </style>
