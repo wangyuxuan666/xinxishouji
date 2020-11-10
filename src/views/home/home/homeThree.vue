@@ -2,6 +2,61 @@
   <div class="total">
     <div class="left">
       <span>当前线上用户地区分布比例</span>
+
+      <ul>
+        <li>
+          <div
+            style="
+              width: 18px;
+              height: 13px;
+              background-color: #22c1c3;
+              display: inline-block;
+              border-radius: 3px;
+              margin-right: 10px;
+            "
+          ></div>
+          路南区当前服务家庭: <span>548</span> 户
+        </li>
+        <li>
+          <div
+            style="
+              width: 18px;
+              height: 13px;
+              background-color: #00f260;
+              display: inline-block;
+              border-radius: 3px;
+              margin-right: 10px;
+            "
+          ></div>
+          路北区当前服务家庭: <span>335</span> 户
+        </li>
+        <li>
+          <div
+            style="
+              width: 18px;
+              height: 13px;
+              background-color: #8360c3;
+              display: inline-block;
+              border-radius: 3px;
+              margin-right: 10px;
+            "
+          ></div>
+          丰润区当前服务家庭: <span>534</span> 户
+        </li>
+        <li>
+          <div
+            style="
+              width: 18px;
+              height: 13px;
+              background-color: #009fff;
+              display: inline-block;
+              border-radius: 3px;
+              margin-right: 10px;
+            "
+          ></div>
+          丰南区当前服务家庭: <span>310</span> 户
+        </li>
+      </ul>
     </div>
     <div class="right">
       <div ref="mychart" class="echarts"></div>
@@ -41,9 +96,9 @@ export default {
           },
           data: [
             { value: 335, name: '路北', itemStyle: { color: '#00F260' } },
-            { value: 310, name: '丰南', itemStyle: { color: '#0575E6' } },
-            { value: 234, name: '丰润', itemStyle: { color: '#74ebd5' } },
-            { value: 1548, name: '路南', itemStyle: { color: '#22c1c3' } }
+            { value: 310, name: '丰南', itemStyle: { color: '#009FFF' } },
+            { value: 534, name: '丰润', itemStyle: { color: '#8360c3' } },
+            { value: 548, name: '路南', itemStyle: { color: '#22c1c3' } }
           ]
         }
       ]
@@ -61,14 +116,34 @@ export default {
     height: 100%;
     float: right;
     display: flex;
-    align-items : center;
+    justify-content: center;
+    flex-direction: column;
     color: #666;
     font-size: 20px;
+    span{
+      margin:40px 0 0 20px;
+    }
+    ul {
+      margin: 40px 0 40px 0;
+      li {
+        height: 30px;
+        padding-left: 10px;
+        box-sizing: border-box;
+        font-size: 16px;
+        color: #666;
+        span {
+          font-size: 18px;
+          color: #ef8e38;
+          font-weight: 700;
+        }
+      }
+    }
   }
   .right {
     width: 50%;
     height: 100%;
     float: left;
+    overflow: unset;
     .echarts {
       width: 100%;
       height: 100%;

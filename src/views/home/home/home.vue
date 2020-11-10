@@ -113,7 +113,7 @@ export default {
     width: 38%;
     height: 50%;
     float: left;
-    padding:2%;
+    padding: 2%;
   }
   .three {
     width: 50%;
@@ -123,7 +123,6 @@ export default {
   .four {
     width: 50%;
     height: 50%;
-    background-color: green;
     float: left;
   }
 }
