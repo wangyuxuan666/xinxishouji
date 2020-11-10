@@ -97,7 +97,7 @@ export default {
   .one {
     width: 60%;
     height: 50%;
-    float: left;
+    float: right;
     padding: 2% 1% 0;
     box-sizing: border-box;
     .echartsone {
@@ -113,7 +113,7 @@ export default {
     width: 38%;
     height: 50%;
     float: left;
-    padding: 2%;
+    padding: 3% 0 1% 4%;
   }
   .three {
     width: 50%;
