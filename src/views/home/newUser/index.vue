@@ -167,6 +167,23 @@
               <el-radio label="周六日"></el-radio>
             </el-radio-group>
           </el-form-item>
+          <el-form-item label="身份证上传">
+            <el-upload
+              :http-request="uploadOldIDjust"
+              action=""
+              :show-file-list="false"
+              class="OldIDjusts"
+            >
+              <img :src="form.oldIDjust" alt=""
+            /></el-upload>
+            <el-upload
+              :http-request="uploadOldIDback"
+              action=""
+              :show-file-list="false"
+              class="OldIDbacks"
+              ><img :src="form.oldIDback" alt=""
+            /></el-upload>
+          </el-form-item>
           <el-form-item label="老人其他补充描述">
             <el-input
               type="textarea"
@@ -174,10 +191,7 @@
               :autosize="{ minRows: 4, maxRows: 10 }"
             ></el-input>
           </el-form-item>
-           <el-form-item>
-
-           </el-form-item>
-          <el-form-item>
+          <el-form-item class="lastitem">
             <el-button type="primary" @click="onSubmit">立即创建</el-button>
             <el-button @click="clearSubmit">清空</el-button>
           </el-form-item>
@@ -250,19 +264,29 @@ export default {
         disease: [],
         nursing: [],
         Duration: '',
+        // 身份证
+        oldIDjust: require('../../../assets/newUser/1.png'),
+        oldIDback: require('../../../assets/newUser/2.png'),
         describe: ''
       }
     }
   },
   methods: {
+    // 提交
     onSubmit () {
-      console.log('submit!')
+      console.log(this.$data.form)
     },
+    // 清除
     clearSubmit () {
       console.log(this.$data.form)
       for (const k in this.$data.form) {
         this.$data.form[k] = ''
       }
+    },
+    // 身份证
+    uploadOldIDjust (params) {
+    },
+    uploadOldIDback (file) {
     }
   }
 }
@@ -277,7 +301,7 @@ export default {
   align-items: center;
   .new {
     width: 95%;
-    margin: 250px 0 30px 0;
+    margin: 450px 0 30px 0;
     .el-form {
       box-sizing: border-box;
       padding: 2% 0 0 3%;
@@ -308,6 +332,24 @@ export default {
       .bottom {
         width: 97%;
         float: left;
+        .OldIDjusts {
+          float: left;
+          margin-left: 30px;
+          img {
+            width: 200px;
+          }
+        }
+        .OldIDbacks {
+          float: left;
+          margin-left: 30px;
+          img {
+            width: 200px;
+          }
+        }
+        .lastitem{
+          padding-left: 40%;
+          box-sizing: border-box;
+        }
       }
     }
   }

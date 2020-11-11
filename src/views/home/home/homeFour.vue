@@ -76,7 +76,7 @@ export default {
       ],
       series: [
         {
-          name: '直接访问',
+          name: '目前总量',
           type: 'bar',
           barWidth: '60%',
           data: [5400, 3300, 1800, 300, 240, 120, 20]
@@ -95,8 +95,8 @@ export default {
   justify-content: center;
   align-items: center;
   .echarts {
-    width: 95%;
-    height: 95%;
+    width: 92%;
+    height: 92%;
   }
 }
 </style>
