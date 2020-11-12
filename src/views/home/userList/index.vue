@@ -31,6 +31,28 @@
         >
         </el-table-column>
         <el-table-column
+          prop="sale"
+          label="销售"
+          :filters="[
+            { text: '小刘', value: '小刘' },
+            { text: '小张', value: '小张' },
+            { text: '小冯', value: '小冯' },
+          ]"
+          :filter-method="filtersale"
+        >
+        </el-table-column>
+        <el-table-column
+          prop="nurse"
+          label="护工"
+          :filters="[
+            { text: '王五', value: '王五' },
+            { text: '赵六', value: '赵六' },
+            { text: '钱三', value: '钱三' },
+          ]"
+          :filter-method="filternurse"
+        >
+        </el-table-column>
+        <el-table-column
           prop="state"
           label="上户状态"
           width="100"
@@ -102,6 +124,8 @@ export default {
           name: '张三',
           contactname: '张先生',
           region: '路南',
+          sale: '小张',
+          nurse: '王五',
           state: true,
           phone: '139111111',
           group: '第一类',
@@ -112,6 +136,8 @@ export default {
           name: '李四',
           contactname: '李女生',
           region: '路北',
+          sale: '小冯',
+          nurse: '王五',
           state: false,
           phone: '139111111',
           group: '第三类',
@@ -122,6 +148,8 @@ export default {
           name: '张三',
           contactname: '张先生',
           region: '丰南',
+          nurse: '钱三',
+          sale: '小刘',
           state: true,
           phone: '139111111',
           group: '第二类',
@@ -132,6 +160,8 @@ export default {
           name: '张三',
           contactname: '张先生',
           region: '丰润',
+          sale: '小冯',
+          nurse: '钱三',
           state: false,
           phone: '139111111',
           group: '第一类',
@@ -142,6 +172,8 @@ export default {
           name: '张三',
           contactname: '张先生',
           region: '丰南',
+          sale: '小刘',
+          nurse: '王五',
           state: true,
           phone: '139111111',
           group: '第一类',
@@ -152,6 +184,8 @@ export default {
           name: '张三',
           contactname: '张先生',
           region: '丰润',
+          sale: '小刘',
+          nurse: '赵六',
           state: false,
           phone: '139111111',
           group: '第三类',
@@ -162,6 +196,8 @@ export default {
           name: '张三',
           contactname: '张先生',
           region: '丰南',
+          sale: '小张',
+          nurse: '王五',
           state: true,
           phone: '139111111',
           group: '第二类',
@@ -172,6 +208,8 @@ export default {
           name: '张三',
           contactname: '张先生',
           region: '丰润',
+          sale: '小冯',
+          nurse: '王五',
           state: false,
           phone: '139111111',
           group: '第三类',
@@ -182,6 +220,8 @@ export default {
           name: '张三',
           contactname: '张先生',
           region: '丰南',
+          sale: '小刘',
+          nurse: '王五',
           state: true,
           phone: '139111111',
           group: '第二类',
@@ -192,6 +232,8 @@ export default {
           name: '张三',
           contactname: '张先生',
           region: '丰润',
+          sale: '小冯',
+          nurse: '王五',
           state: false,
           phone: '139111111',
           group: '第二类',
@@ -202,6 +244,8 @@ export default {
           name: '张三',
           contactname: '张先生',
           region: '丰南',
+          sale: '小张',
+          nurse: '赵六',
           state: true,
           phone: '139111111',
           group: '第三类',
@@ -212,6 +256,8 @@ export default {
           name: '张三',
           contactname: '张先生',
           region: '丰润',
+          sale: '小冯',
+          nurse: '赵六',
           state: false,
           phone: '139111111',
           group: '第一类',
@@ -222,6 +268,8 @@ export default {
           name: '张三',
           contactname: '张先生',
           region: '丰南',
+          sale: '小张',
+          nurse: '王五',
           state: true,
           phone: '139111111',
           group: '第一类',
@@ -232,6 +280,8 @@ export default {
           name: '张三',
           contactname: '张先生',
           region: '丰润',
+          sale: '小张',
+          nurse: '赵六',
           state: false,
           phone: '139111111',
           group: '第一类',
@@ -260,6 +310,12 @@ export default {
     },
     filtergroup (value, row) {
       return row.group === value
+    },
+    filtersale (value, row) {
+      return row.sale === value
+    },
+    filternurse (value, row) {
+      return row.nurse === value
     }
   }
 }
