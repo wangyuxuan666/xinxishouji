@@ -3,19 +3,19 @@
     <el-card class="new">
       <el-form ref="form" :model="form" label-width="90px">
         <div class="left">
-          <el-form-item label="老人姓名">
+          <el-form-item label="护工姓名">
             <el-input
               v-model="form.name"
-              placeholder="请输入老人姓名"
+              placeholder="请输入真实姓名"
             ></el-input>
           </el-form-item>
-          <el-form-item label="联系人姓名">
+          <el-form-item label="护工年龄">
             <el-input
-              v-model="form.contactsname"
+              v-model="form.age"
               placeholder="请输入联系人姓名"
             ></el-input>
           </el-form-item>
-          <el-form-item label="老人性别">
+          <el-form-item label="护工性别">
             <el-switch
               v-model="form.gender"
               active-text="男"
@@ -25,7 +25,7 @@
             >
             </el-switch>
           </el-form-item>
-          <el-form-item label="创建时间">
+          <el-form-item label="入职时间">
             <el-date-picker
               v-model="form.date"
               align="right"
@@ -50,37 +50,37 @@
           <el-form-item label="手机号">
             <el-input
               v-model="form.phone"
-              placeholder="请输入联系人手机号"
+              placeholder="请输入护工手机号"
             ></el-input>
           </el-form-item>
           <el-form-item label="家庭住址">
             <el-input
               v-model="form.address"
-              placeholder="请输入服务地址"
+              placeholder="请输入家庭地址"
             ></el-input>
           </el-form-item>
-          <el-form-item label="老人学历">
-            <el-select v-model="form.education" placeholder="请选择老人学历">
-              <el-option label="小学毕业" value="0"></el-option>
-              <el-option label="初中毕业" value="1"></el-option>
-              <el-option label="高中毕业" value="2"></el-option>
-              <el-option label="大学毕业" value="3"></el-option>
-              <el-option label="研究生及以上" value="4"></el-option>
+          <el-form-item label="护工学历">
+            <el-select v-model="form.education" placeholder="请选择护工学历">
+              <el-option label="无学历" value="0"></el-option>
+              <el-option label="小学毕业" value="1"></el-option>
+              <el-option label="初中毕业" value="2"></el-option>
+              <el-option label="高中毕业" value="3"></el-option>
+              <el-option label="大学毕业" value="4"></el-option>
+              <el-option label="研究生及以上" value="5"></el-option>
             </el-select>
           </el-form-item>
-          <el-form-item label="老人爱好">
+          <el-form-item label="工作经验">
             <el-input
-              v-model="form.hobby"
-              placeholder="请输入老人爱好"
+              v-model="form.experience"
+              placeholder="请输入工作时长"
             ></el-input>
           </el-form-item>
-          <el-form-item label="喜欢食物">
-            <el-select v-model="form.likefood" placeholder="老人喜欢食物">
-              <el-option label="肉类" value="0"></el-option>
-              <el-option label="蔬菜" value="1"></el-option>
-              <el-option label="水果" value="2"></el-option>
-              <el-option label="西餐" value="3"></el-option>
-              <el-option label="零食" value="4"></el-option>
+          <el-form-item label="护工等级">
+            <el-select v-model="form.lv" placeholder="护工等级">
+              <el-option label="初级护工" value="0"></el-option>
+              <el-option label="中级护工" value="1"></el-option>
+              <el-option label="高级护工" value="2"></el-option>
+              <el-option label="金牌护工" value="3"></el-option>
             </el-select>
           </el-form-item>
         </div>
@@ -96,77 +96,20 @@
               <el-option label="党员" value="3"></el-option>
             </el-select>
           </el-form-item>
-          <el-form-item label="老人籍贯">
+          <el-form-item label="护工籍贯">
             <el-input
               v-model="form.Native"
-              placeholder="请输入老人户籍所在地"
+              placeholder="请输入护工户籍所在地"
             ></el-input>
           </el-form-item>
-          <el-form-item label="监控安装">
-            <el-switch
-              v-model="form.monitor"
-              active-text="不需要"
-              inactive-text="需要"
-              active-color="#13ce66"
-              inactive-color="#009FFF"
-            >
-            </el-switch>
+          <el-form-item label="紧急联系人">
+            <el-input v-model="form.urgentname" placeholder="请输入联系人姓名"></el-input>
           </el-form-item>
-          <el-form-item label="护工名称">
-            <el-select v-model="form.nurse" placeholder="请选择匹配护工">
-              <el-option label="暂无" value="0"></el-option>
-              <el-option label="张三" value="1"></el-option>
-              <el-option label="李四" value="2"></el-option>
-              <el-option label="王五" value="3"></el-option>
-              <el-option label="赵六" value="4"></el-option>
-            </el-select>
+          <el-form-item label="联系人电话">
+            <el-input v-model="form.urgentphone" placeholder="请输入联系人电话"></el-input>
           </el-form-item>
         </div>
         <div class="bottom">
-          <el-form-item label="老人情况">
-            <el-radio-group v-model="form.situation">
-              <el-radio label="全自理"></el-radio>
-              <el-radio label="半失能"></el-radio>
-              <el-radio label="全失能"></el-radio>
-            </el-radio-group>
-          </el-form-item>
-          <el-form-item label="进食情况">
-            <el-radio-group v-model="form.eat">
-              <el-radio label="自主进食"></el-radio>
-              <el-radio label="协助进食"></el-radio>
-              <el-radio label="胃管进食"></el-radio>
-            </el-radio-group>
-          </el-form-item>
-          <el-form-item label="选择病症">
-            <el-checkbox-group v-model="form.disease">
-              <el-checkbox label="糖尿病"></el-checkbox>
-              <el-checkbox label="慢阻肺"></el-checkbox>
-              <el-checkbox label="冠心病"></el-checkbox>
-              <el-checkbox label="高血压"></el-checkbox>
-              <el-checkbox label="高血脂"></el-checkbox>
-              <el-checkbox label="癌症"></el-checkbox>
-            </el-checkbox-group>
-          </el-form-item>
-          <el-form-item label="护理需求">
-            <el-checkbox-group v-model="form.nursing">
-              <el-checkbox label="胃管"></el-checkbox>
-              <el-checkbox label="尿管"></el-checkbox>
-              <el-checkbox label="吸痰"></el-checkbox>
-              <el-checkbox label="引流管"></el-checkbox>
-              <el-checkbox label="气管插管"></el-checkbox>
-              <el-checkbox label="气切"></el-checkbox>
-              <el-checkbox label="人工肛门"></el-checkbox>
-            </el-checkbox-group>
-          </el-form-item>
-          <el-form-item label="护理时长">
-            <el-radio-group v-model="form.Duration">
-              <el-radio label="全天"></el-radio>
-              <el-radio label="白天"></el-radio>
-              <el-radio label="夜间"></el-radio>
-              <el-radio label="周一至周五"></el-radio>
-              <el-radio label="周六日"></el-radio>
-            </el-radio-group>
-          </el-form-item>
           <el-form-item label="身份证上传">
             <el-upload
               :http-request="uploadOldIDjust"
@@ -184,7 +127,7 @@
               ><img :src="form.oldIDback" alt=""
             /></el-upload>
           </el-form-item>
-          <el-form-item label="老人其他补充描述">
+          <el-form-item label="信息补充">
             <el-input
               type="textarea"
               v-model="form.describe"
@@ -238,7 +181,7 @@ export default {
       // 表单
       form: {
         name: '',
-        contactsname: '',
+        age: '',
         nurse: '0',
         gender: false,
         date: '',
@@ -249,24 +192,18 @@ export default {
         address: '',
         education: '',
         hobby: '',
-        likefood: '',
+        lv: '',
 
         // 第三列
         nation: '',
         Politics: '',
         Native: '',
-        monitor: false,
-        placeholder: false,
+        urgentname: '',
+        urgentphone: '',
 
-        // 底层
-        situation: '',
-        eat: '',
-        disease: [],
-        nursing: [],
-        Duration: '',
         // 身份证
-        oldIDjust: require('../../../assets/newUser/1.png'),
-        oldIDback: require('../../../assets/newUser/2.png'),
+        oldIDjust: require('../../../../assets/newUser/1.png'),
+        oldIDback: require('../../../../assets/newUser/2.png'),
         describe: ''
       }
     }
@@ -284,10 +221,8 @@ export default {
       }
     },
     // 身份证
-    uploadOldIDjust (params) {
-    },
-    uploadOldIDback (file) {
-    }
+    uploadOldIDjust (params) {},
+    uploadOldIDback (file) {}
   }
 }
 </script>
@@ -301,7 +236,7 @@ export default {
   align-items: center;
   .new {
     width: 95%;
-    margin: 450px 0 30px 0;
+    margin: 100px 0 30px 0;
     .el-form {
       box-sizing: border-box;
       padding: 2% 0 0 3%;
@@ -346,7 +281,7 @@ export default {
             width: 200px;
           }
         }
-        .lastitem{
+        .lastitem {
           padding-left: 40%;
           box-sizing: border-box;
         }

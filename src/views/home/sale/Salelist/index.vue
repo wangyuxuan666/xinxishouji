@@ -1,6 +1,6 @@
 <template>
   <div>
-      护士列表
+      销售列表
   </div>
 </template>
 
