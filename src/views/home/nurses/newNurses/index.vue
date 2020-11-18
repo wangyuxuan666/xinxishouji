@@ -85,7 +85,7 @@
           </el-form-item>
         </div>
         <div class="right">
-          <el-form-item label="老人民族">
+          <el-form-item label="护工民族">
             <el-input v-model="form.nation" placeholder="请输入民族"></el-input>
           </el-form-item>
           <el-form-item label="政治面貌">
@@ -215,9 +215,14 @@ export default {
     },
     // 清除
     clearSubmit () {
-      console.log(this.$data.form)
       for (const k in this.$data.form) {
-        this.$data.form[k] = ''
+        if (k === 'oldIDjust') {
+          this.$data.form[k] = require('../../../../assets/newUser/1.png')
+        } else if (k === 'oldIDback') {
+          this.$data.form[k] = require('../../../../assets/newUser/2.png')
+        } else {
+          this.$data.form[k] = ''
+        }
       }
     },
     // 身份证

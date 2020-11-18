@@ -13,6 +13,7 @@
             text-color="#eee"
             active-text-color="#ffd04b"
             router
+            :default-active="activeIndex"
           >
             <!-- 导航组件 -->
             <el-menu-item index="/home"> 首页 </el-menu-item>
@@ -40,7 +41,7 @@
               <el-menu-item index="/home/achievement">业绩统计</el-menu-item>
             </el-submenu>
             <el-menu-item index="/home/workOrder">工单系统</el-menu-item>
-            <el-menu-item index="/home/myMessage">个人信息</el-menu-item>
+            <!-- <el-menu-item index="/home/myMessage">个人信息</el-menu-item> -->
           </el-menu>
         </div>
       </el-aside>
@@ -89,7 +90,9 @@
 <script>
 export default {
   data () {
-    return {}
+    return {
+      activeIndex: '1'
+    }
   }
 }
 </script>
